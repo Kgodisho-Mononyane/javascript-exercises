@@ -1,11 +1,9 @@
-const contains = function(obj, val) {
-    /*
-    if (obj.includes(val)) {
-        return true;
-    } else {
-        return (ojb.)
-    }*/
-   //Check for recursion that summed salaries
+const contains = function (obj, val) {
+  const values = Object.values(obj);
+  const nestedObjects = values.filter((value) => typeof value === "object" && value !== null);
+
+  if (values.includes(val)) return true;
+  return nestedObjects.some((nestedObject) => contains(nestedObject, val));
 };
   
 // Do not edit below this line
